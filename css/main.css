@@ -64,7 +64,7 @@ a {
     cursor: pointer;
     list-style: none;
     color: var(--text);
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 500;
     font-variant-caps: all-small-caps;
     letter-spacing: 0.04em;
@@ -84,7 +84,7 @@ a {
     min-height: 20.25px;
     margin: 0 0 6px;
     color: var(--muted);
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.35;
     white-space: nowrap;
 }
@@ -99,7 +99,7 @@ a {
     display: block;
     margin: 0 0 16px;
     color: var(--text);
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 500;
     font-variant-caps: all-small-caps;
     letter-spacing: 0.04em;
@@ -212,7 +212,7 @@ figcaption,
 .caption {
     margin-top: 7px;
     color: var(--muted);
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.4;
 }
 
@@ -305,7 +305,7 @@ figcaption,
     max-width: 600px;
     margin-top: var(--space-flow);
     color: var(--muted);
-    font-size: 13px;
+    font-size: 14px;
     line-height: 1.55;
 }
 
