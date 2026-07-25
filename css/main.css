@@ -1,0 +1,572 @@
+:root {
+    --background: #ffffff;
+    --text: #2b2b2b;
+    --muted: #8d8d8d;
+    --highlight: #0047cc;
+    --page-margin: 35px;
+    --navigation-width: 250px;
+    --content-gap: 64px;
+    --content-width: 720px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+    overflow-y: scroll;
+    background: var(--background);
+    color: var(--text);
+    font-family: "IBM Plex Sans Condensed", "Arial Narrow", Arial, sans-serif;
+    font-size: 17px;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--background);
+    line-height: 1.65;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.site-menu {
+    position: fixed;
+    top: var(--page-margin);
+    left: var(--page-margin);
+    width: var(--navigation-width);
+    max-height: calc(100vh - (var(--page-margin) * 2));
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+    padding-right: 20px;
+}
+
+.site-title {
+    margin: 0 0 26px;
+    font-size: 17px;
+    font-weight: 500;
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.025em;
+    line-height: 1.35;
+}
+
+.site-title a:hover,
+.site-title a:focus-visible {
+    color: var(--highlight);
+}
+
+.menu-section {
+    margin: 0 0 16px;
+}
+
+.menu-section summary {
+    cursor: pointer;
+    list-style: none;
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 500;
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.04em;
+    line-height: 1.35;
+    user-select: none;
+}
+
+.menu-section summary::-webkit-details-marker { display: none; }
+.menu-section summary::marker { content: ""; }
+
+.submenu {
+    margin: 4px 0 2px 18px;
+}
+
+.submenu a {
+    display: block;
+    min-height: 20.25px;
+    margin: 0 0 6px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.35;
+    white-space: nowrap;
+}
+
+.submenu a:hover,
+.submenu a:focus-visible,
+.submenu a.current {
+    color: var(--highlight);
+}
+
+.section-link {
+    display: block;
+    margin: 0 0 16px;
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 500;
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.04em;
+    line-height: 1.35;
+}
+
+.section-link:hover,
+.section-link:focus-visible,
+.section-link.current {
+    color: var(--highlight);
+}
+
+a:focus-visible,
+summary:focus-visible {
+    outline: 1px solid var(--highlight);
+    outline-offset: 4px;
+}
+
+.content {
+    width: min(
+        var(--content-width),
+        calc(100vw - var(--page-margin) - var(--navigation-width) - var(--content-gap) - var(--page-margin))
+    );
+    margin-left: calc(var(--page-margin) + var(--navigation-width) + var(--content-gap));
+    padding: var(--page-margin) 0 80px;
+}
+
+.page-title,
+.project-title {
+    margin: 0 0 4px;
+    color: var(--text);
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 1.35;
+}
+
+.project-year,
+.page-year {
+    display: block;
+    margin: 0 0 28px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.35;
+}
+
+.project-text {
+    max-width: 38em;
+    font-size: 17px;
+    line-height: 1.65;
+}
+
+.project-text p {
+    margin: 0 0 1.2em;
+}
+
+.project-text a,
+.writing-entry a {
+    color: var(--highlight);
+    text-decoration: underline;
+    text-decoration-color: var(--highlight);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+}
+
+.project-text a:visited,
+.writing-entry a:visited {
+    color: var(--highlight);
+}
+
+.writing-list {
+    margin: 8px 0 0;
+    padding: 0;
+}
+
+.writing-entry {
+    max-width: 38em;
+    margin: 0 0 12px;
+    padding: 0;
+    font-size: 17px;
+    line-height: 1.45;
+}
+
+.writing-year {
+    display: inline-block;
+    margin-top: 1px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.35;
+}
+
+.placeholder-note {
+    margin-top: 28px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+img,
+video {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+figure {
+    margin: 0 0 28px;
+}
+
+figcaption,
+.caption {
+    margin-top: 7px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+@media (max-width: 760px) {
+    :root { --page-margin: 24px; }
+
+    .site-menu {
+        position: static;
+        width: auto;
+        max-height: none;
+        overflow: visible;
+        padding: var(--page-margin) var(--page-margin) 0;
+    }
+
+    .content {
+        width: auto;
+        margin-left: 0;
+        padding: 40px var(--page-margin) 60px;
+    }
+}
+
+
+/* Project pages: shared editorial rhythm */
+:root {
+    --space-close: 8px;
+    --space-caption: 18px;
+    --space-flow: 30px;
+    --space-section: 48px;
+}
+
+.project-introduction {
+    max-width: 600px;
+    margin: 0 0 var(--space-section);
+}
+
+.project-quotation {
+    max-width: 600px;
+    margin: 0 0 var(--space-close);
+    padding: 0;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.65;
+}
+
+.project-quotation p,
+.project-text--small p {
+    margin: 0;
+}
+
+.project-text--small {
+    max-width: 600px;
+    font-size: 15px;
+    line-height: 1.65;
+}
+
+.dictionary-entry strong {
+    font-weight: 700;
+}
+
+.project-image-sequence {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-flow);
+}
+
+.project-work {
+    width: min(600px, 100%);
+    margin: 0;
+}
+
+.project-work img {
+    width: 100%;
+    margin: 0;
+}
+
+.project-work figcaption {
+    margin-top: var(--space-close);
+}
+
+.work-title {
+    color: var(--text);
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.3;
+}
+
+.project-metadata {
+    max-width: 600px;
+    margin-top: var(--space-flow);
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+.project-metadata p {
+    margin: 0;
+}
+
+.installation-views {
+    max-width: 600px;
+    margin-top: var(--space-flow);
+}
+
+.installation-views h3 {
+    margin: 0 0 var(--space-flow);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.35;
+}
+
+.installation-group {
+    margin: 0 0 var(--space-section);
+}
+
+.installation-group:last-child {
+    margin-bottom: 0;
+}
+
+.installation-group figure {
+    width: min(600px, 100%);
+    margin: 0 0 var(--space-caption);
+}
+
+.installation-group figure:last-of-type {
+    margin-bottom: 0;
+}
+
+.installation-group img {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+}
+
+.installation-credit {
+    margin: var(--space-close) 0 0;
+    color: #666;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.5;
+}
+
+.installation-credit em {
+    font-style: italic;
+}
+
+@media (max-width: 760px) {
+    .project-introduction {
+        margin-bottom: var(--space-section);
+    }
+}
+
+.material-list {
+    margin-bottom: var(--space-flow);
+    line-height: 1.45;
+}
+
+.material-list sub {
+    font-size: 0.72em;
+    line-height: 0;
+    vertical-align: sub;
+}
+
+.project-metadata p + p {
+    margin-top: var(--space-caption);
+}
+
+
+/* a photograph: statement and photographic sequence */
+.project-statement p {
+    margin: 0 0 1.35em;
+}
+
+.project-statement p:last-child {
+    margin-bottom: 0;
+}
+
+.work-caption {
+    margin-top: var(--space-close);
+    color: var(--text);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.3;
+}
+
+.work-caption em {
+    font-style: italic;
+}
+
+.photograph-sequence-note {
+    width: min(600px, 100%);
+    margin: 0;
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+.photograph-sequence-note p {
+    margin: 0;
+}
+
+/* Hope document links */
+.hope-publication-link {
+    width: min(600px, 100%);
+    margin: -12px 0 0;
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+.hope-publication-link a {
+    color: var(--highlight);
+    text-decoration: underline;
+    text-decoration-color: var(--highlight);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+.hope-installation-views {
+    margin-top: var(--space-caption);
+}
+
+
+/* Modern Nature / Güncel Doğa */
+.modern-nature-introduction .project-text,
+.modern-nature-introduction .project-text p {
+    margin-top: 0;
+    text-indent: 0;
+}
+
+.modern-nature-book-page img {
+    border: 1px solid #eeeeee;
+}
+
+/* Chroma / Kroma: centred 300px cover within the existing 600px image box */
+.chroma-cover img {
+    width: min(300px, 100%);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* Chromatic Senses: digital pages retain a faint grey edge */
+.chromatic-senses-digital img {
+    border: 1px solid #eeeeee;
+}
+
+/* Mavi Blue Blau: reproduced digital pages retain a faint grey edge;
+   the opening photograph of the physical book remains borderless. */
+.mavi-blue-blau-digital img {
+    border: 1px solid #eeeeee;
+}
+
+/* Texts: linked titles, publication metadata and centred covers */
+.writing-page {
+    --writing-image-slot: 600px;
+}
+
+.writing-page .page-title {
+    margin-bottom: 28px;
+}
+
+.writing-list {
+    margin: 0;
+}
+
+.writing-entry {
+    width: min(100%, var(--writing-image-slot));
+    max-width: none;
+    margin: 0 0 64px;
+    font-size: 17px;
+    line-height: 1.45;
+}
+
+.writing-entry:last-child {
+    margin-bottom: 0;
+}
+
+.writing-title {
+    max-width: 38em;
+    margin: 0 0 4px;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.45;
+}
+
+.writing-publication {
+    max-width: 38em;
+    margin: 0 0 28px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.35;
+}
+
+.writing-cover {
+    width: 250px;
+    margin: 0 auto;
+}
+
+.writing-cover img {
+    width: 250px;
+    border: 1px solid #d9d9d9;
+    box-sizing: border-box;
+}
+
+@media (max-width: 760px) {
+    .writing-entry {
+        width: 100%;
+        margin-bottom: 52px;
+    }
+
+    .writing-cover {
+        width: min(250px, 100%);
+    }
+
+    .writing-cover img {
+        width: 100%;
+    }
+}
+
+
+/* Info page: same quiet scale and width as work-page statements */
+.info-page {
+    width: min(600px, 100%);
+}
+
+.info-divider {
+    width: 100%;
+    max-width: 600px;
+    margin: 30px 0;
+    border: 0;
+    border-top: 1px solid #d8d8d8;
+}
+
+
+.info-page > p:nth-child(-n+3) {
+    margin: 0 0 8px;
+}
+
+/* Home page */
+.home-image {
+    width: min(600px, 100%);
+    margin: 0;
+}
+
+.home-image img {
+    width: 100%;
+}
+
+.home-image figcaption {
+    margin-top: var(--space-close);
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.3;
+}

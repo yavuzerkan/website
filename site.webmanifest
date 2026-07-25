@@ -1,0 +1,15 @@
+{
+  "name": "Yavuz Erkan",
+  "short_name": "Yavuz Erkan",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0047CC",
+  "icons": [
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
